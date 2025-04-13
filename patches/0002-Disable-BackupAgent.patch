@@ -1,0 +1,34 @@
+From 16148301b662e82f609b28f3b53a2c2b014f1c9f Mon Sep 17 00:00:00 2001
+From: Alexander Winkowski <dereference23@outlook.com>
+Date: Thu, 18 Apr 2024 11:47:56 +0200
+Subject: [PATCH] Disable `BackupAgent`
+
+* Doesn't work on AOSP
+
+Change-Id: I0be35e30009b6a3f1d3f0f2930a971c25a9f4182
+---
+ AndroidManifest.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 93d6cf26f..ac9590674 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -67,7 +67,7 @@
+         </intent>
+         <package android:name="com.xiaomi.scanner"/>
+     </queries>
+-    <application android:allowBackup="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:backupAgent="com.android.camera.backup.CameraBackupAgent" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher_camera" android:label="@string/camera_label" android:largeHeap="true" android:name="com.android.camera.CameraAppImpl" android:networkSecurityConfig="@xml/network_security_config" android:resizeableActivity="false" android:supportsRtl="true" android:theme="@style/ThemeCamera">
++    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@mipmap/ic_launcher_camera" android:label="@string/camera_label" android:largeHeap="true" android:name="com.android.camera.CameraAppImpl" android:networkSecurityConfig="@xml/network_security_config" android:resizeableActivity="false" android:supportsRtl="true" android:theme="@style/ThemeCamera">
+         <uses-library android:name="micloud-sdk" android:required="false"/>
+         <meta-data android:name="required_permissions" android:value="@string/required_permissions_supportModifiable"/>
+         <meta-data android:name="miui.supportRequiredModifiable" android:value="true"/>
+@@ -258,4 +258,4 @@
+         <service android:exported="false" android:name="com.iqiyi.android.qigsaw.core.splitinstall.SplitCleanService"/>
+         <meta-data android:name="devicebaseinfo" android:value="1.0"/>
+     </application>
+-</manifest>
+\ No newline at end of file
++</manifest>
+-- 
+GitLab
