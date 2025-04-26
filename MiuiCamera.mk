@@ -11,6 +11,10 @@ $(call inherit-product, vendor/xiaomi/miuicamera/common/common-vendor.mk)
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     MiuiCamera
 
+# Icon overlay
+PRODUCT_PACKAGES += \
+    MiuiCameraOverlayIcon
+
 # Priv-app permission
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-miui.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-miui.xml
