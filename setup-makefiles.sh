@@ -64,6 +64,17 @@ write_headers "arm64"
 sed -i 's|TARGET_DEVICE|TARGET_ARCH|g' "${ANDROIDMK}"
 sed -i 's|vendor/xiaomi/miuicamera/|vendor/xiaomi/miuicamera/common|g' "${PRODUCTMK}"
 sed -i 's|device/xiaomi/miuicamera//setup-makefiles.sh|vendor/xiaomi/miuicamera/setup-makefiles.sh|g' "${ANDROIDBP}" "${ANDROIDMK}" "${BOARDMK}" "${PRODUCTMK}"
+sed -i '0,/android_app_import {/s//genrule {\
+	name: "merge_MiuiCamera",\
+	srcs: [\
+		"proprietary\/system\/priv-app\/MiuiCamera\/MiuiCamera.apk.part*",\
+	],\
+	out: ["proprietary\/system\/priv-app\/MiuiCamera\/MiuiCamera.apk"],\
+	cmd: "cat $(in) > $(out)",\
+}\
+\
+&/' "${ANDROIDBP}"
+sed -i 's|apk: "proprietary/system/priv-app/MiuiCamera/MiuiCamera.apk",|apk: ":merge_MiuiCamera",|' "${ANDROIDBP}"
 
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 

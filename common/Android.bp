@@ -459,10 +459,19 @@ cc_prebuilt_library_shared {
 	soc_specific: true,
 }
 
+genrule {
+	name: "merge_MiuiCamera",
+	srcs: [
+		"proprietary/system/priv-app/MiuiCamera/MiuiCamera.apk.part*",
+	],
+	out: ["proprietary/system/priv-app/MiuiCamera/MiuiCamera.apk"],
+	cmd: "cat $(in) > $(out)",
+}
+
 android_app_import {
 	name: "MiuiCamera",
 	owner: "xiaomi/miuicamera",
-	apk: "proprietary/system/priv-app/MiuiCamera/MiuiCamera.apk",
+	apk: ":merge_MiuiCamera",
 	overrides: ["Camera2", "GoogleCamera", "GoogleCameraGo"],
 	certificate: "platform",
 	dex_preopt: {
