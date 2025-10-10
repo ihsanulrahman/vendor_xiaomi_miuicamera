@@ -5,9 +5,9 @@
 #
 
 # Inherit from the proprietary version
-include vendor/xiaomi/miuicamera/common/BoardConfigVendor.mk
+include vendor/xiaomi/miuicamera-miatoll/common/BoardConfigVendor.mk
 
-MIUICAMERA_PATH := vendor/xiaomi/miuicamera
+MIUICAMERA_PATH := vendor/xiaomi/miuicamera-miatoll
 
 # Build Hacks
 BUILD_BROKEN_DUP_SYSPROP := true

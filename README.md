@@ -1,13 +1,13 @@
 # MiuiCamera for Miatoll
 
-Clone to `vendor/xiaomi/miuicamera` and add these lines in your device tree :
+Clone to `vendor/xiaomi/miuicamera-miatoll` and add these lines in your device tree :
 - In device.mk:
 ```
-$(call inherit-product-if-exists, vendor/xiaomi/miuicamera/MiuiCamera.mk)
+$(call inherit-product-if-exists, vendor/xiaomi/miuicamera-miatoll/MiuiCamera.mk)
 ```
 - In BoardConfig.mk:
 ```
--include vendor/xiaomi/miuicamera/BoardConfigMiuiCamera.mk
+-include vendor/xiaomi/miuicamera-miatoll/BoardConfigMiuiCamera.mk
 ```
 - In device FCM:
 ```

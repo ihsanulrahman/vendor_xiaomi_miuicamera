@@ -8,7 +8,7 @@
 set -e
 
 DEVICE=common
-VENDOR=xiaomi/miuicamera
+VENDOR=xiaomi/miuicamera-miatoll
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -25,7 +25,7 @@ source "${HELPER}"
 
 function vendor_imports() {
     cat << EOF >> "$1"
-		"vendor/xiaomi/miuicamera",
+		"vendor/xiaomi/miuicamera-miatoll",
 EOF
 }
 
@@ -62,8 +62,8 @@ setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true
 # Warning headers and guards
 write_headers "arm64"
 sed -i 's|TARGET_DEVICE|TARGET_ARCH|g' "${ANDROIDMK}"
-sed -i 's|vendor/xiaomi/miuicamera/|vendor/xiaomi/miuicamera/common|g' "${PRODUCTMK}"
-sed -i 's|device/xiaomi/miuicamera//setup-makefiles.sh|vendor/xiaomi/miuicamera/setup-makefiles.sh|g' "${ANDROIDBP}" "${ANDROIDMK}" "${BOARDMK}" "${PRODUCTMK}"
+sed -i 's|vendor/xiaomi/miuicamera-miatoll/|vendor/xiaomi/miuicamera-miatoll/common|g' "${PRODUCTMK}"
+sed -i 's|device/xiaomi/miuicamera-miatoll//setup-makefiles.sh|vendor/xiaomi/miuicamera-miatoll/setup-makefiles.sh|g' "${ANDROIDBP}" "${ANDROIDMK}" "${BOARDMK}" "${PRODUCTMK}"
 sed -i '0,/android_app_import {/s//genrule {\
 	name: "merge_MiuiCamera",\
 	srcs: [\

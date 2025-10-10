@@ -8,7 +8,7 @@
 set -e
 
 DEVICE=common
-VENDOR=xiaomi/miuicamera
+VENDOR=xiaomi/miuicamera-miatoll
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

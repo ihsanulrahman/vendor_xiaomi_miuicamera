@@ -5,7 +5,7 @@
 #
 
 # Inherit from the proprietary version
-$(call inherit-product, vendor/xiaomi/miuicamera/common/common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/miuicamera-miatoll/common/common-vendor.mk)
 
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \
